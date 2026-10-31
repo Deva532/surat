@@ -106,11 +106,17 @@ Jalankan migration untuk membuat tabel-tabel persuratan, disposisi, dan pengguna
 php artisan migrate
 ```
 
-### Langkah 6: Jalankan Seeder Akun Pejabat & Data Master
+### Langkah 6: Jalankan Seeder Akun Pejabat & Data Persuratan
 Jalankan seeder untuk mengisi akun **Superadmin** dan **7 Pejabat Struktural Kecamatan Lamongan**:
 ```bash
 php artisan db:seed --class=JabatanUserSeeder
 ```
+
+*(Opsional)* Jika ingin mengisi data dummy persuratan lengkap (Profil Kecamatan, Klasifikasi Kategori Surat, Surat Masuk, Lembar Disposisi, dan Surat Keluar) tanpa mengubah/menambah akun user:
+```bash
+php artisan db:seed --class=DummyPersuratanSeeder
+```
+Atau cukup jalankan `php artisan db:seed` untuk menjalankan keduanya sekaligus.
 
 ### Langkah 7: Hubungkan Symbolic Link Storage
 Pastikan folder `storage/app/public` terhubung ke direktori `public/storage` agar lampiran surat dan logo dinas dapat diakses:
